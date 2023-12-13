@@ -11,7 +11,7 @@ use Src\Auth\Auth;
 class Application
 {
    private Settings $settings;
-   private Route $route;
+   public Route $route;
    private Capsule $dbManager;
    private Auth $auth;
 
