@@ -1,38 +1,17 @@
 <div class="body">
     <div class="form">
-<h2>Добавление нового сотрудника</h2>
-<h3><?= $message ?? ''; ?></h3>
-<form class="login" method="post">
-    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
-    <label>
-            Роль<br>
-        <select name="id_role" id="">
-        <?php
-            if ($_SESSION['id_role'] != 1):
-                ?>
-            <option value="1">Админ</option>
-            <?php endif;?>
-            <option value="2">Сотрудник</option>
-        </select>
+        <h2>Добавление сотрудника</h2>
+        <h3><?= $message ?? ''; ?></h3>
 
-    </label>
-
-    <label>Логин <br><input type="text" name="login"></label>
-    <label>Пароль <br><input type="password" name="password"></label><br>
-    <button>Добавить</button>
-</form>
+        <form method="post" class="login">
+            <label>Логин<br><input type="text" name="loginEmployees"></label>
+            <label>Пароль<br><input type="text" name="passwordEmployees"></label>
+            <button>Создать</button><br>
+        </form>
     </div>
 </div>
 
 <style>
-    select{
-        width: 250px;
-        height: 30px;
-        margin: 0 0 10px 0;
-        border-radius: 20px;
-        border: solid FireBrick 2px;
-        background-color: white;
-    }
     .form{
         border: solid rosybrown 2px;
         width: 500px;
@@ -65,6 +44,7 @@
     }
     h2{
         color: rosybrown;
+        text-align: center;
 
     }
     h3{
@@ -79,8 +59,9 @@
         font-size: 14pt;
         background-color: rosybrown;
         color: white;
-        width: 250px;
+        width: 120px;
         border-radius: 20px;
         border: solid rosybrown 2px;
     }
 </style>
+<?php

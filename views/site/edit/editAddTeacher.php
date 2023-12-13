@@ -1,46 +1,29 @@
 <div class="body">
-    <div class="form">
-<h2>Добавление нового сотрудника</h2>
+<div class="form">
+<h2>Добавление преподавателя</h2>
 <h3><?= $message ?? ''; ?></h3>
+
 <form class="login" method="post">
-    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
-    <label>
-            Роль<br>
-        <select name="id_role" id="">
-        <?php
-            if ($_SESSION['id_role'] != 1):
-                ?>
-            <option value="1">Админ</option>
-            <?php endif;?>
-            <option value="2">Сотрудник</option>
-        </select>
-
-    </label>
-
-    <label>Логин <br><input type="text" name="login"></label>
-    <label>Пароль <br><input type="password" name="password"></label><br>
-    <button>Добавить</button>
+<input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+    <label>Фамилия<br><input type="text" name="surname"></label>
+    <label>Имя<br><input type="text" name="name"></label>
+    <label>Отчество<br><input type="text" name="patronymic"></label>
+    
+    <button>Создать</button>
 </form>
-    </div>
+</div>
 </div>
 
 <style>
-    select{
-        width: 250px;
-        height: 30px;
-        margin: 0 0 10px 0;
-        border-radius: 20px;
-        border: solid FireBrick 2px;
-        background-color: white;
-    }
+
     .form{
         border: solid rosybrown 2px;
         width: 500px;
-        height: 380px;
+        height: 560px;
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin: 200px 0 0 0;
+        margin: 100px 0 0 0;
         border-radius: 10px;
     }
     .login{
@@ -65,6 +48,7 @@
     }
     h2{
         color: rosybrown;
+        text-align: center;
 
     }
     h3{
@@ -83,4 +67,4 @@
         border-radius: 20px;
         border: solid rosybrown 2px;
     }
-</style>
+<?php
